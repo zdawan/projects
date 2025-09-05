@@ -42,12 +42,12 @@ export default function Projects() {
       {/* Filters + Toggle in same row */}
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4 text-sm md:text-base text-ink/70">
         {/* Filters */}
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          {categories.map((c, idx) => (
+        <div className="filters flex flex-wrap items-center gap-x-6 gap-y-2">
+          {categories.map((c) => (
             <button
               key={c}
               onClick={() => setActive(c)}
-              className="group relative h-6 overflow-hidden"
+              className="group relative h-6 overflow-hidden flex items-center gap-2"
             >
               <div className="relative h-6 overflow-hidden">
                 <span
@@ -65,6 +65,13 @@ export default function Projects() {
                   {c}
                 </span>
               </div>
+
+              {/* Badge for project count */}
+              {c === "All projects" && (
+                <span className="ml-1 text-xs bg-pink-600 text-white rounded-full px-2 py-0.5">
+                  {all.length}
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -151,8 +158,8 @@ export default function Projects() {
 
                   {/* CTA */}
                   <div className="hidden md:flex col-span-3 justify-end items-center gap-2">
-                    <span className="text-sm text-ink/60 transition group-hover:text-ink">
-                      View project
+                    <span className="text-sm text-ink/60 transition group-hover:text-pink-600">
+                      Case Study
                     </span>
                     <svg
                       className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -173,7 +180,7 @@ export default function Projects() {
 
                 {/* Hover image preview with animation */}
                 {/* Hover image preview with animation */}
-                <div className="hover-circle pointer-events-none absolute top-0 left-0 w-64 h-80 rounded-lg overflow-hidden shadow-xl opacity-0 transition-opacity duration-200">
+                <div className="hover-circle pointer-events-none absolute top-0 left-0 w-100 h-80 rounded-lg overflow-hidden shadow-xl opacity-0 transition-opacity duration-200 z-50">
                   <div className="relative h-full overflow-hidden">
                     <img
                       src={proj.image || "/placeholder.png"}
@@ -229,9 +236,7 @@ export default function Projects() {
 
       {/* Footer */}
       <div className="py-16 md:py-24 text-center">
-        <p className="text-sm text-ink/60">
-          © Kanso Studio — Demo clone for educational use.
-        </p>
+        <p className="text-sm text-ink/60">© D's Studio</p>
       </div>
     </section>
   );
