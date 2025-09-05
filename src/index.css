@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base tweaks to mimic Kanso spacing/typography */
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+  h1 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+/* Subtle link underline */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s ease;
+}
+a:hover.link-underline {
+  background-size: 100% 1px;
+}
