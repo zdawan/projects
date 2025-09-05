@@ -28,11 +28,11 @@ export default function Projects() {
     <section className="mx-auto max-w-7xl px-8">
       {/* Heading + intro */}
       <div className="pt-16 md:pt-24 pb-10 md:pb-12 grid md:grid-cols-12 md:gap-6 items-start">
-        <h1 className="font-sans text-7xl md:text-9xl font-semibold col-span-6">
+        <h1 className="font-sans font-semibold tracking-[-0.08em] col-span-6 text-[8rem] md:text-[12rem] leading-[1]">
           Projects<span className="align-top text-pink-600">.</span>
         </h1>
         <div className="col-span-6 flex flex-col md:items-end">
-          <p className="mt-6 md:mt-3 max-w-lg text-base md:text-lg text-ink/60 text-left md:text-right">
+          <p className="mt-4 md:mt-3 max-w-md md:max-w-sm  md:text-lg tracking-tighter text-ink/60 text-left font-semibold md:text-right">
             A curated selection of projects that reflect our commitment to
             simplicity and purposeful design.
           </p>
