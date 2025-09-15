@@ -18,7 +18,7 @@ export const projects = [
   {
     id: "qr-based-attendance-system",
     title: "QR-Attendance",
-    year: 2025,
+    year: "June 2025",
     type: "App Visual Direction",
     categories: ["/Web design", "/Digital Design", "/Art Direction"],
     image: Wireframe0,
@@ -26,7 +26,7 @@ export const projects = [
   {
     id: "ai-content-generator",
     title: "AI-Content-Generator",
-    year: 2025,
+    year: "May 2025",
     type: "Fashion Brand Launch",
     categories: ["/Web design", "/Strategy", "/Brand Identity"],
     image: Wireframe1,
@@ -54,6 +54,30 @@ export const projects = [
     type: "Portfolio Website",
     categories: ["/Web design", "/Digital Design"],
     image: Wireframe4,
+  },
+  {
+    id: "subsquid",
+    title: "Subsquid Subscription Platform",
+    year: 2022,
+    type: "Skincare Rebrand",
+    categories: ["/Brand Identity"],
+    image: Wireframe5,
+  },
+  {
+    id: "subsquid",
+    title: "Subsquid Subscription Platform",
+    year: 2022,
+    type: "Skincare Rebrand",
+    categories: ["/Brand Identity"],
+    image: Wireframe5,
+  },
+  {
+    id: "subsquid",
+    title: "Subsquid Subscription Platform",
+    year: 2022,
+    type: "Skincare Rebrand",
+    categories: ["/Brand Identity"],
+    image: Wireframe5,
   },
   {
     id: "subsquid",
