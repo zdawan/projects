@@ -77,8 +77,8 @@ export default function Projects() {
         </div>
 
         {/* Modern toggle */}
-        <div className="flex rounded-full border border-neutral-300 overflow-hidden text-sm">
-          <button
+        {/* <div className="flex rounded-full border border-neutral-300 overflow-hidden text-sm">
+          {/* <button
             onClick={() => setView("list")}
             className={`px-5 py-2 transition ${
               view === "list"
@@ -87,8 +87,8 @@ export default function Projects() {
             }`}
           >
             List
-          </button>
-          <button
+          </button> */}
+        {/* <button
             onClick={() => setView("grid")}
             className={`px-5 py-2 transition ${
               view === "grid"
@@ -98,7 +98,7 @@ export default function Projects() {
           >
             Grid
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* List/Grid */}

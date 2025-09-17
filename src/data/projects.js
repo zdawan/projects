@@ -4,6 +4,7 @@ import Wireframe2 from "../assets/Wireframe - 3.png";
 import Wireframe3 from "../assets/Wireframe - 4.png";
 import Wireframe4 from "../assets/Wireframe -6.png";
 import Wireframe5 from "../assets/06.png";
+import Wireframe6 from "../assets/Wireframe - 7.png";
 
 export const categories = [
   "All projects",
@@ -27,7 +28,7 @@ export const projects = [
     id: "ai-content-generator",
     title: "AI-Content-Generator",
     year: "May 2025",
-    type: "Fashion Brand Launch",
+    type: "Product Launch",
     categories: ["/Web design", "/Strategy", "/Brand Identity"],
     image: Wireframe1,
   },
@@ -51,7 +52,7 @@ export const projects = [
     id: "doctor-patient-app",
     title: "Doctor / Patient Application",
     year: "November 2024",
-    type: "Portfolio Website",
+    type: "Portal Site",
     categories: ["/Web design", "/Digital Design"],
     image: Wireframe4,
   },
@@ -59,7 +60,7 @@ export const projects = [
     id: "subsquid",
     title: "Subsquid Subscription Platform",
     year: "September 2024",
-    type: "Skincare Rebrand",
+    type: "Model Rebrand",
     categories: ["/Brand Identity"],
     image: Wireframe5,
   },
@@ -69,6 +70,6 @@ export const projects = [
     year: "July 2024",
     type: "Education Collaboration",
     categories: ["/Brand Identity", "/Digital Design"],
-    image: Wireframe5,
+    image: Wireframe6,
   },
 ];
