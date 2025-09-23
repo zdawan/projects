@@ -1,3 +1,4 @@
+import Wireframe from "../assets/Wireframe.png";
 import Wireframe0 from "../assets/Wireframe - 0.png";
 import Wireframe1 from "../assets/Wireframe - 2.png";
 import Wireframe2 from "../assets/Wireframe - 3.png";
@@ -13,9 +14,18 @@ export const categories = [
   "/Digital Design",
   "/Brand Identity",
   "/Web design",
+  "/Coming soon",
 ];
 
 export const projects = [
+  {
+    id: "ai-powered-bug-tracker",
+    title: "Bug-Tracker",
+    year: "October 2025",
+    type: "Software Development",
+    categories: ["/Coming soon"],
+    image: Wireframe,
+  },
   {
     id: "qr-based-attendance-system",
     title: "QR-Attendance",

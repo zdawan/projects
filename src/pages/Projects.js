@@ -43,37 +43,52 @@ export default function Projects() {
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4 text-sm md:text-base text-ink/70">
         {/* Filters */}
         <div className="filters flex flex-wrap items-center gap-x-6 gap-y-2">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setActive(c)}
-              className="group relative h-6 overflow-hidden flex items-center gap-2"
-            >
-              <div className="relative h-6 overflow-hidden">
-                <span
-                  className={`block transition-transform duration-300 ease-in-out group-hover:-translate-y-full ${
-                    active === c ? "font-semibold text-ink" : "text-ink/70"
-                  }`}
-                >
-                  {c}
-                </span>
-                <span
-                  className={`block absolute left-0 top-full transition-transform duration-300 ease-in-out group-hover:-translate-y-full ${
-                    active === c ? "font-semibold text-ink" : "text-ink/70"
-                  }`}
-                >
-                  {c}
-                </span>
-              </div>
+          {categories.map((c) => {
+            const isComingSoon = c === "/Coming soon";
+            const isAll = c === "All projects";
 
-              {/* Badge for project count */}
-              {c === "All projects" && (
-                <span className="ml-1 text-xs bg-pink-600 text-white rounded-full px-2 py-0.5">
-                  {all.length}
-                </span>
-              )}
-            </button>
-          ))}
+            return (
+              <button
+                key={c}
+                onClick={() => setActive(c)} // disable click for Coming soon
+                className="group relative h-6 cursor-pointer overflow-hidden flex items-center gap-2"
+              >
+                <div className="relative h-6 overflow-hidden">
+                  <span
+                    className={`block transition-transform duration-300 ease-in-out group-hover:-translate-y-full
+              ${
+                isComingSoon
+                  ? "font-semibold bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient"
+                  : active === c
+                  ? "font-semibold text-ink"
+                  : "text-ink/70"
+              }`}
+                  >
+                    {c}
+                  </span>
+                  <span
+                    className={`block absolute left-0 top-full transition-transform duration-300 ease-in-out group-hover:-translate-y-full
+              ${
+                isComingSoon
+                  ? "font-semibold bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient"
+                  : active === c
+                  ? "font-semibold text-ink"
+                  : "text-ink/70"
+              }`}
+                  >
+                    {c}
+                  </span>
+                </div>
+
+                {/* 🔥 Show total project count next to "All projects" */}
+                {isAll && (
+                  <span className="ml-1 text-xs bg-pink-600 text-white rounded-full px-2 py-0.5">
+                    {all.length}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
 
         {/* Modern toggle */}
