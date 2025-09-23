@@ -26,6 +26,20 @@ export default function Projects() {
 
   return (
     <section className="mx-auto max-w-7xl px-8">
+      {/* Nav */}
+      {/* <div className="pt-6 px-2 flex justify-end">
+        <nav>
+          <a
+            href="https://zdawan.github.io/dharshan.github.io/"
+            className="group flex items-center font-semibold text-ink hover:text-pink-600 transition-colors"
+          >
+            Home
+            <span className="ml-1 opacity-0 translate-x-[-4px] transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+              &larr;
+            </span>
+          </a>
+        </nav>
+      </div> */}
       {/* Heading + intro */}
       <div className="pt-16 md:pt-24 pb-10 md:pb-12 grid md:grid-cols-12 md:gap-6 items-start">
         <h1 className="font-sans font-semibold tracking-[-0.08em] col-span-6 text-[8rem] md:text-[12rem] leading-[1]">
@@ -46,6 +60,12 @@ export default function Projects() {
           {categories.map((c) => {
             const isComingSoon = c === "/Coming soon";
             const isAll = c === "All projects";
+
+            const count = isAll
+              ? all.length
+              : isComingSoon
+              ? all.filter((p) => p.categories?.includes(c)).length
+              : null;
 
             return (
               <button
@@ -80,10 +100,16 @@ export default function Projects() {
                   </span>
                 </div>
 
-                {/* 🔥 Show total project count next to "All projects" */}
-                {isAll && (
-                  <span className="ml-1 text-xs bg-pink-600 text-white rounded-full px-2 py-0.5">
-                    {all.length}
+                {/* ✅ Badge only for All projects & Coming soon */}
+                {count !== null && count > 0 && (
+                  <span
+                    className={`ml-1 text-xs rounded-full px-2 py-0.5 ${
+                      isComingSoon
+                        ? "bg-gray-600 text-white"
+                        : "bg-pink-600 text-white"
+                    }`}
+                  >
+                    {count}
                   </span>
                 )}
               </button>
