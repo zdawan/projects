@@ -105,7 +105,7 @@ export default function Projects() {
                   <span
                     className={`ml-1 text-xs rounded-full px-2 py-0.5 ${
                       isComingSoon
-                        ? "bg-gray-600 text-white"
+                        ? "bg-pink-600 text-white"
                         : "bg-pink-600 text-white"
                     }`}
                   >
