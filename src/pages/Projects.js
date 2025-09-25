@@ -276,9 +276,89 @@ export default function Projects() {
       )}
 
       {/* Footer */}
-      <div className="py-16 md:py-24 text-center">
-        <p className="text-sm text-ink/60">© D's Studio</p>
-      </div>
+      <footer className="mt-20 text-gray-400 py-16">
+        <div className="max-w-6xl mx-auto px-6 space-y-10">
+          {/* Big Header */}
+          <div className="group flex justify-center cursor-pointer">
+            <h2 className="relative inline-block text-6xl md:text-7xl font-semibold text-black text-center overflow-hidden">
+              {/* Default text */}
+              <span
+                className="block transition-all duration-500 ease-in-out 
+                 group-hover:opacity-0 group-hover:-translate-y-3"
+              >
+                D’s Studi<span className="text-pink-600">o</span>
+              </span>
+
+              {/* Hover text */}
+              <span
+                className="absolute inset-0 block opacity-0 translate-y-3 
+                 transition-all duration-500 ease-in-out 
+                 group-hover:opacity-100 group-hover:translate-y-0"
+              >
+                D<span className="text-pink-600">.</span>com
+              </span>
+            </h2>
+          </div>
+
+          {/* Footer Grid */}
+          <div className="grid md:grid-cols-3  gap-10 text-sm">
+            {/* Contact */}
+            <div className="space-y-2 pt-40">
+              <a
+                href="mailto:jdharshankumar22@gmail.com"
+                className="block relative group overflow-hidden"
+              >
+                <span className="transition-colors group-hover:text-pink-500">
+                  jdharshankumar22@gmail.com
+                </span>
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a
+                href="tel:+918248744641"
+                className="block relative group overflow-hidden"
+              >
+                <span className="transition-colors group-hover:text-pink-500">
+                  +91 82487 44641
+                </span>
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </div>
+
+            {/* Social links */}
+            <div className="flex justify-center gap-8">
+              {[
+                { name: "GitHub", url: "#" },
+                { name: "LinkedIn", url: "#" },
+                { name: "Twitter", url: "#" },
+                { name: "Instagram", url: "#" },
+              ].map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  className="relative group inline-block"
+                >
+                  <span className="relative text-gray-400 transition-colors group-hover:text-pink-500">
+                    {social.name}
+                    {/* underline directly under text */}
+                    <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            {/* Credits */}
+            <div className="text-right space-y-1 pt-40">
+              <p>© {new Date().getFullYear()} All Rights Reserved</p>
+              <p className="text-xs">
+                Design & Developed by{" "}
+                <span className="hover:text-pink-500 transition-colors">
+                  Dharshan Kumar J
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </section>
   );
 }
