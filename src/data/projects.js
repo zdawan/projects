@@ -25,6 +25,13 @@ export const projects = [
     type: "Software Development",
     categories: ["/Coming soon"],
     image: Wireframe,
+  },{
+    id: "gold-investment-app",
+    title: "Valura.Ai",
+    year: "October 2025",
+    type: "Software Development",
+    categories: ["/Coming soon"],
+    image: Wireframe,
   },
   {
     id: "qr-based-attendance-system",
