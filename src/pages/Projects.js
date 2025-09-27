@@ -197,25 +197,27 @@ export default function Projects() {
                     </span>
                   </div>
 
-                  {/* CTA */}
-                  <div className="hidden md:flex col-span-3 justify-end items-center gap-2">
-                    <span className="text-sm text-ink/60 transition group-hover:text-pink-600">
-                      Case Study
-                    </span>
-                    <svg
-                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M5 12h14M13 5l7 7-7 7"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
+                  {/* CTA - hide if project is Coming Soon */}
+                  {!proj.categories.includes("/Coming soon") && (
+                    <div className="hidden md:flex col-span-3 justify-end items-center gap-2">
+                      <span className="text-sm text-ink/60 transition group-hover:text-pink-600">
+                        Case Study
+                      </span>
+                      <svg
+                        className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M5 12h14M13 5l7 7-7 7"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  )}
                 </div>
                 <div className="h-px bg-neutral-200 -mt-px group-hover:bg-neutral-300 transition-colors"></div>
 

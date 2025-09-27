@@ -19,20 +19,22 @@ export const categories = [
 
 export const projects = [
   {
+    id: "gold-investment-app",
+    title: "Valura.Ai",
+    year: "December 2025",
+    type: "Mobile App Development",
+    categories: ["/Coming soon"],
+    image: Wireframe,
+  },
+  {
     id: "ai-powered-bug-tracker",
     title: "Bug-Tracker",
     year: "October 2025",
     type: "Software Development",
     categories: ["/Coming soon"],
     image: Wireframe,
-  },{
-    id: "gold-investment-app",
-    title: "Valura.Ai",
-    year: "October 2025",
-    type: "Software Development",
-    categories: ["/Coming soon"],
-    image: Wireframe,
   },
+
   {
     id: "qr-based-attendance-system",
     title: "QR-Attendance",
