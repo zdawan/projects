@@ -329,10 +329,14 @@ export default function Projects() {
             {/* Social links */}
             <div className="flex justify-center gap-8">
               {[
-                { name: "GitHub", url: "#" },
-                { name: "LinkedIn", url: "#" },
-                { name: "Twitter", url: "#" },
-                { name: "Instagram", url: "#" },
+                {
+                  name: "GitHub",
+                  url: "https://zdawan.github.io/dharshan.github.io/",
+                },
+                {
+                  name: "LinkedIn",
+                  url: "https://www.linkedin.com/in/dharshan-kumar-j-897a41252/",
+                },
               ].map((social) => (
                 <a
                   key={social.name}
