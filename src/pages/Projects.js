@@ -152,93 +152,111 @@ export default function Projects() {
           animate="show"
         >
           <AnimatePresence mode="popLayout">
-            {filtered.map((proj) => (
-              <motion.a
-                href="#"
-                key={proj.id}
-                variants={item}
-                initial="hidden"
-                animate="show"
-                exit={{ opacity: 0, y: -10 }}
-                className="group relative block cursor-none"
-                onMouseMove={(e) => {
-                  const circle = e.currentTarget.querySelector(".hover-circle");
-                  if (circle) {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    circle.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-                  }
-                }}
-                onMouseEnter={(e) => {
-                  const circle = e.currentTarget.querySelector(".hover-circle");
-                  if (circle) circle.style.opacity = 1;
-                }}
-                onMouseLeave={(e) => {
-                  const circle = e.currentTarget.querySelector(".hover-circle");
-                  if (circle) circle.style.opacity = 0;
-                }}
-              >
-                <div className="grid grid-cols-12 items-center py-6 md:py-8 transition">
-                  {/* Title */}
-                  <div className="col-span-8 md:col-span-6">
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-2xl md:text-3xl">{proj.title}</span>
-                      <span className="text-xs md:text-sm text-ink/40 border border-neutral-300 rounded-full px-2 py-0.5">
-                        {proj.type}
-                      </span>
+            {filtered.map((proj) => {
+              const isComingSoon = proj.categories.includes("/Coming soon");
+              const Wrapper = isComingSoon ? "div" : "a";
+
+              return (
+                <motion.div
+                  key={proj.id}
+                  variants={item}
+                  initial="hidden"
+                  animate="show"
+                  exit={{ opacity: 0, y: -10 }}
+                >
+                  <Wrapper
+                    href={isComingSoon ? undefined : proj.link}
+                    target={isComingSoon ? undefined : "_blank"}
+                    rel={isComingSoon ? undefined : "noopener noreferrer"}
+                    className={`group relative block ${
+                      isComingSoon
+                        ? "cursor-not-allowed opacity-70"
+                        : "cursor-pointer"
+                    }`}
+                    onMouseMove={(e) => {
+                      const circle =
+                        e.currentTarget.querySelector(".hover-circle");
+                      if (circle) {
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        circle.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+                      }
+                    }}
+                    onMouseEnter={(e) => {
+                      const circle =
+                        e.currentTarget.querySelector(".hover-circle");
+                      if (circle) circle.style.opacity = 1;
+                    }}
+                    onMouseLeave={(e) => {
+                      const circle =
+                        e.currentTarget.querySelector(".hover-circle");
+                      if (circle) circle.style.opacity = 0;
+                    }}
+                  >
+                    <div className="grid grid-cols-12 items-center py-6 md:py-8 transition">
+                      {/* Title */}
+                      <div className="col-span-8 md:col-span-6">
+                        <div className="flex items-baseline gap-3">
+                          <span className="text-2xl md:text-3xl">
+                            {proj.title}
+                          </span>
+                          <span className="text-xs md:text-sm text-ink/40 border border-neutral-300 rounded-full px-2 py-0.5">
+                            {proj.type}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Year */}
+                      <div className="col-span-4 md:col-span-3 md:justify-self-center text-right md:text-left">
+                        <span className="tracking-wider text-sm text-ink/60">
+                          {proj.year}
+                        </span>
+                      </div>
+
+                      {/* CTA */}
+                      {!isComingSoon && (
+                        <div className="hidden md:flex col-span-3 justify-end items-center gap-2">
+                          <span className="text-sm text-ink/60 transition group-hover:text-pink-600">
+                            View Project
+                          </span>
+                          <svg
+                            className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M5 12h14M13 5l7 7-7 7"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      )}
                     </div>
-                  </div>
+                    <div className="h-px bg-neutral-200 -mt-px group-hover:bg-neutral-300 transition-colors"></div>
 
-                  {/* Year */}
-                  <div className="col-span-4 md:col-span-3 md:justify-self-center text-right md:text-left">
-                    <span className="tracking-wider text-sm text-ink/60">
-                      {proj.year}
-                    </span>
-                  </div>
-
-                  {/* CTA - hide if project is Coming Soon */}
-                  {!proj.categories.includes("/Coming soon") && (
-                    <div className="hidden md:flex col-span-3 justify-end items-center gap-2">
-                      <span className="text-sm text-ink/60 transition group-hover:text-pink-600">
-                        Case Study
-                      </span>
-                      <svg
-                        className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5 12h14M13 5l7 7-7 7"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                    {/* Hover image */}
+                    <div className="hover-circle pointer-events-none absolute top-0 left-0 w-100 h-80 rounded-lg overflow-hidden shadow-xl opacity-0 transition-opacity duration-200 z-50">
+                      <div className="relative h-full overflow-hidden">
+                        <img
+                          src={proj.image || "/placeholder.png"}
+                          alt={proj.title}
+                          className="block w-full h-full object-cover transition-transform duration-300 ease-in-out hover:-translate-y-full"
                         />
-                      </svg>
+                        <img
+                          src={proj.image || "/placeholder.png"}
+                          alt={proj.title}
+                          className="block absolute left-0 top-full w-full h-full object-cover transition-transform duration-300 ease-in-out hover:-translate-y-full"
+                        />
+                      </div>
                     </div>
-                  )}
-                </div>
-                <div className="h-px bg-neutral-200 -mt-px group-hover:bg-neutral-300 transition-colors"></div>
-
-                {/* Hover image preview with animation */}
-                {/* Hover image preview with animation */}
-                <div className="hover-circle pointer-events-none absolute top-0 left-0 w-100 h-80 rounded-lg overflow-hidden shadow-xl opacity-0 transition-opacity duration-200 z-50">
-                  <div className="relative h-full overflow-hidden">
-                    <img
-                      src={proj.image || "/placeholder.png"}
-                      alt={proj.title}
-                      className="block w-full h-full object-cover transition-transform duration-300 ease-in-out hover:-translate-y-full"
-                    />
-                    <img
-                      src={proj.image || "/placeholder.png"}
-                      alt={proj.title}
-                      className="block absolute left-0 top-full w-full h-full object-cover transition-transform duration-300 ease-in-out hover:-translate-y-full"
-                    />
-                  </div>
-                </div>
-              </motion.a>
-            ))}
+                  </Wrapper>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       ) : (
